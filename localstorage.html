@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <button id="add">Alter</button>
+    <button id="cls">Clear</button>
+    <script>
+        var addalter=document.querySelector("#add");
+        var del=document.querySelector("#cls");
+        var title=document.querySelector("h1");
+        addalter.onclick=function(){
+            userDetails();
+        }
+        del.onclick=function(){
+            localStorage.clear();
+        }
+        function userDetails(){
+            var name=prompt("Please Enter Your Name:");
+            localStorage.setItem("username",name);
+            title.textContent="Welcome "+name
+        }
+        if(!localStorage.getItem("username")){
+            userDetails();
+        }
+        else{
+            var name=localStorage.getItem("username");
+            title.textContent="Welcome"+name;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Student</title>
+</head>
+
+<body>
+    <center>
+        <h1>Student Result</h1>
+        <input type="number" id="marks" onkeyup="gradd()">
+        <input type="checkbox" id="yesorno" onchange="gradd()" style="display:none;">College Student
+        <p id="grades">Grade?</p>
+    </center>
+    <script>
+        function gradd() {
+            let student = document.getElementById("marks").value;
+            let grade = document.getElementById("grades");
+            let collegeCheckbox = document.getElementById("yesorno");
+
+            if(student >= 100) {
+                grade.textContent = "You entered a wrong mark";
+                collegeCheckbox.style.display = "none";
+            } else if (student >= 90) {
+                grade.textContent = "Grade: A";
+                collegeCheckbox.style.display = "none";
+            } else if (student >= 70) {
+                grade.textContent = "Grade: B";
+                collegeCheckbox.style.display = "none";
+            } else if (student >= 60) {
+                grade.textContent = "Grade: C";
+                collegeCheckbox.style.display = "none";
+            } else if (student >= 50) {
+                grade.textContent = "Grade: D";
+                collegeCheckbox.style.display = "none";
+            } else {
+                collegeCheckbox.style.display = "inline";
+                grade.textContent = "Fail";
+            }
+        }
+
+        document.getElementById("yesorno").addEventListener("change", function() {
+            if (this.checked) {
+                document.getElementById("grades").textContent = "RA";
+            } else {
+                gradd(); // Update grade based on the input value if checkbox is unchecked
+            }
+        });
+    </script>
+</body>
+
+</html>

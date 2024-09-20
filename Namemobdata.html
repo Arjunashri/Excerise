@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer <details></details></title>
+</head>
+<body bgcolor="grey">
+    <table id="inputForm">
+        <form action="">
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name" ></td>
+            </tr>
+            <tr>
+                <td>Mob No:</td>
+                <td><input type="number" id="mobNo"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add">
+                </td>
+            </tr>
+        </form>
+    </table>
+    <table id="dataTable" border="2" bgcolor="white">
+        <tr><td>Name</td><td>Mob No</td><td>Action</td></tr>
+    </table>
+    <script>
+       let customers=JSON.parse(localStorage.getItem("customers")) || []
+
+       function addRow(name,mobNo,index){
+        let table=document.getElementById("dataTable")
+        let row=table.insertRow();
+        row.insertCell(0).innerText=name;
+        row.insertCell(1).innerText=mobNo;
+        let deleteBtn=document.createElement("button")
+        deleteBtn.innerText="Delete"
+        deleteBtn.onclick=function(){
+            deleteRow(index)
+        }
+        row.insertCell(2).appendChild(deleteBtn)
+       }
+
+       function deleteRow(index){
+        customers.splice(index,1)
+        updataLocalStorage()
+        renderTable()
+       }
+
+       function renderTable(){
+        let table= document.getElementById("dataTable")
+        table.innerHTML=" <tr><td>Name</td><td>Mob No</td><td>Action</td></tr>"
+        customers.forEach((customer,index) =>{
+            addRow(customer.name,customer.mobNo,index)
+        }
+    )}
+
+    function updataLocalStorage(){
+        localStorage.setItem("customers",JSON.stringify(customers))
+    }
+
+    document.getElementById("inputForm").addEventListener("submit",function(event){
+        event.preventDefault();
+        let name=document.getElementById("name").value;
+        let mobNo=document.getElementById("mobNo").value;
+        if(name.trim() !=="" && mobNo.trim() !==""){
+            customers.push({name:name, mobNo:mobNo})
+            updataLocalStorage()
+            renderTable()
+            document.getElementById("name").value="";
+            document.getElementById("mobNo").value=""
+        }else{
+            alert("Please enter valid name and mobNo")
+        }
+    })
+    renderTable()
+       
+    </script>
+</body>
+</html>

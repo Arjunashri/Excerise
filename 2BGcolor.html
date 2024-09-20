@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers on Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffd89b, #19547b);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            margin: 0 0 10px;
+            color: #777;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Starting ₹199</h1>
+    <div class="subtitle">
+        Offers on clothing, footwear & more | Latest Trends | Easy Returns
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h3>Starting ₹99 | Amazon Brands & more</h3>
+            <div class="card-grid">
+                <img src="image1.png" alt="Home Storage">
+                <p>Starting ₹299 | Home storage & organization</p>
+                <img src="image2.png" alt="Toys & Games">
+            </div>
+            
+            <p>Up to 60% off | Storage & racks</p>
+            <a href="#">Shop now</a>
+        </div>
+        <div class="card">
+            <h3>Revamp your home in style</h3>
+            <div class="card-grid">
+                <img src="image3.png" alt="Cushion Covers">
+                <img src="image4.png" alt="Lighting Solutions">
+            </div>
+            <p>Cushion covers, bedsheets & more</p>
+            <p>Home storage, Lighting solutions</p>
+            <a href="#">Explore all</a>
+        </div>
+        <div class="card">
+            <h3>Appliances for your home | Up to 55% off</h3>
+            <div class="card-grid">
+                <img src="image5.png" alt="Air Conditioners">
+                <img src="image6.png" alt="Microwaves">
+            </div>
+            <p>Air conditioners, Refrigerators & more</p>
+            <p>Microwaves, Washing machines</p>
+            <a href="#">See more</a>
+        </div>
+        <div class="card">
+            <h3>Starting ₹149 | Headphones</h3>
+            <div class="card-grid">
+                <img src="image7.png" alt="Headphones 1">
+                <img src="image8.png" alt="Headphones 2">
+            </div>
+            <p>boAt, Noise, Zebronics & more</p>
+            <a href="#">See all offers</a>
+        </div>
+        <!-- Add more cards following the same pattern -->
+    </div>
+
+</body>
+</html>

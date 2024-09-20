@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show the name on webpage</title>
+
+  </head>
+  <body>
+   <h1 id="email">ArjunGovind@gmail.com</h1>
+   <div id="result"></div>
+
+<script>
+
+let namec = document.querySelector("h1").textContent;
+
+function slicefu(namec){
+    return namec.slice(0,namec.indexOf("@"))
+}
+
+let sliced = slicefu(namec);
+
+document.getElementById("result").textContent=sliced;
+console.log(sliced)
+
+
+
+/*
+
+let namec = document.querySelector("h1").textContent;
+
+function slicefu(namec) {
+    return namec.slice(0, namec.indexOf("@"));
+}
+
+let slicedResult = slicefu(namec);
+
+// Display the result on the webpage
+document.getElementById("result").textContent = slicedResult;
+
+console.log(slicedResult);
+*/
+
+</script>
+</body>
+</html>

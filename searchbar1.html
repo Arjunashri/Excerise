@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search list item</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 100px;
+            background: #262a2f;
+            color: white;
+        }
+        .search {
+            padding: 20px;
+            text-align: center;
+        }
+        input {
+            width: 40%;
+            padding: 15px;
+            border-radius: 30px;
+            outline: none;
+        }
+        .list-items{
+            margin-top: 2%;
+            margin-left: 30%;
+        }
+        .list-item {
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="search">
+        <input type="text" id="find" placeholder="Search here..." onkeyup="search()">
+    </div>
+
+    <div class="list-items">
+        <div class="list-item"><h3>HTML</h3></div>
+        <div class="list-item"><h3>CSS</h3></div>
+        <div class="list-item"><h3>JavaScript</h3></div>
+        <div class="list-item"><h3>Easy to learn</h3></div>
+        <div class="list-item"><h3>Front-end Developer</h3></div>
+        <div class="list-item"><h3>Where to learn coding online</h3></div>
+        <div class="list-item"><h3>Where to learn web design</h3></div>
+        <div class="list-item"><h3>How to create a website</h3></div>
+        <div class="list-item"><h3>How do I create my own website?</h3></div>
+        <div class="list-item"><h3>Can I create a website for free?</h3></div>
+    </div>
+
+    <script>
+        function search() {
+            let filter = document.getElementById("find").value.toUpperCase();
+            let items = document.querySelectorAll(".list-item");
+
+            for (let i = 0; i < items.length; i++) {
+          
+                let itemName = items[i].querySelector("h3").textContent.toUpperCase();
+
+                if (itemName.indexOf(filter) > -1) {
+                    items[i].style.display = "block"; // or any other appropriate display value
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!--
+.search {
+    width: 400px;
+    height: 20px;
+    background-color: white;
+    border-radius: 45px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 50px;
+}
+
+input {
+    width: 440px;
+    height: 40px;
+    align-items: center;
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+}-->

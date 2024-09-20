@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video and Audio</title>
+  
+</head>
+<body>
+    <!-- Embedded YouTube videos with a class for JavaScript targeting -->
+    <iframe class="video" width="960" height="550" src="https://www.youtube.com/embed/DsJ5XN2Jqlo?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe class="video" width="960" height="550" src="https://www.youtube.com/embed/UtxaRodBVf8?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe class="video" width="960" height="550" src="https://www.youtube.com/embed/Q7z568ogkBk?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe class="video" width="960" height="550" src="https://www.youtube.com/embed/4uqM3PinkAg?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe class="video" width="960" height="550" src="https://www.youtube.com/embed/4NkNrGwqsiE?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <script>
+        // Function to create a new YT.Player object for each iframe
+        function onYouTubeIframeAPIReady() {
+            var players = [];
+            var iframes = document.querySelectorAll('iframe.video');
+            
+            iframes.forEach((iframe, index) => {
+                players[index] = new YT.Player(iframe, {
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            });
+            
+            function onPlayerStateChange(event) {
+                if (event.data == YT.PlayerState.PLAYING) {
+                    players.forEach(player => {
+                        if (player !== event.target) {
+                            player.pauseVideo();
+                        }
+                    });
+                }
+            }
+        }
+
+        // Load the IFrame Player API code asynchronously
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+</body>
+</html>

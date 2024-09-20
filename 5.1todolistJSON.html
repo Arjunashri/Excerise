@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="New Task">
+    <button id="btn">Add Task</button>
+    <ul id="taskList"></ul>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const taskInput = document.getElementById("taskInput");
+            const taskList = document.getElementById("taskList");
+
+            // Function to load tasks from local storage
+            function loadTasks() {
+                const tasks = JSON.parse(localStorage.getItem("todo")) || [];
+                tasks.forEach(task => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = task;
+                    taskList.appendChild(listItem);
+                });
+            }
+
+            // Function to save tasks to local storage
+            function saveTask(task) {
+                const tasks = JSON.parse(localStorage.getItem("todo")) || [];
+                tasks.push(task);
+                localStorage.setItem("todo", JSON.stringify(tasks));
+            }
+
+            // Load tasks when the page loads
+            loadTasks();
+
+            document.getElementById("btn").addEventListener("click", function() {
+                if (taskInput.value !== '') {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = taskInput.value;
+                    taskList.appendChild(listItem);
+                    
+                    // Save the new task to local storage
+                    saveTask(taskInput.value);
+
+                    taskInput.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

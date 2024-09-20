@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Google website</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color:rgb(85, 88, 86);
+            font-family: sans-serif;
+        }
+        .namee{
+            font-size: 40px;
+            font-weight: 10px;
+            color: rgb(193, 181, 181);
+            margin-left: 42%;
+            margin-top: 10%;
+
+        }
+        input{
+            width: 70%;
+            padding: 12px;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+        }
+        .search{
+            display: flex;
+            width: 27%;
+            padding: 5px;
+            margin-top: 3%;
+            margin-left: 35%;
+            background-color: white;
+            border-radius: 30px;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+        .search>i{
+            color: rgba(255, 0, 0, 0.68);
+        }
+   
+    </style>
+</head>
+<body>
+    <div class="namee">
+    <h1>Google</h1>
+</div>
+<div class="search">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input type="text" placeholder="Search Google or type a URL">
+    <i class="fa fa-microphone" aria-hidden="true"></i>
+    <i class="fa fa-camera" aria-hidden="true"></i>
+   
+</div>
+<div id="items" class="item-list">
+    
+        </div>  
+<script>
+    const listitems=document.querySelector("#items")
+    listitems.style.display="flex"
+   listitems.style.flexWrap="wrap"
+   listitems.style.flexDirection="row"
+   listitems.style.margin="10px"
+   listitems.style.width="500px"
+   listitems.style.marginLeft="35%"
+   listitems.style.justifyContent="space-evenly"
+   listitems.style.padding="10px"
+   console.log(listitems)
+ 
+
+    const createDiv = (parent,iter)=>{
+        const newDiv=document.createElement("div")
+    newDiv.style.width="50px";
+    newDiv.style.height="50px";
+    newDiv.style.borderRadius="50px";
+    newDiv.textContent = iter;
+    newDiv.style.color="black";
+    newDiv.style.alignItems="center";
+    newDiv.style.display="flex";
+    newDiv.style.justifyContent="space-evenly";
+    newDiv.style.backgroundColor="grey";
+    newDiv.style.margin="20px"
+    parent.append(newDiv)
+    }
+   
+   for(i=1; i<9; i++){
+    createDiv(listitems,i)
+   }
+   createDiv(listitems,"+")
+
+</script>
+    
+</body>
+</html>

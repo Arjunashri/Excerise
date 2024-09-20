@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light on and off</title>
+</head>
+<body>
+    <img src="off.jpg" alt="" width="250px" height="250px">
+
+    <script>
+        var img = document.querySelector('img');
+
+        img.onclick=function(){
+            var srcc=img.getAttribute("src");
+            if(srcc==="off.jpg"){
+                img.setAttribute("src","on.jpg")
+            }else{
+                img.setAttribute("src","off.jpg")
+            }
+        }
+    </script>
+</body>
+
+</html>
